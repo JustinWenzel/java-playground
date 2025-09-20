@@ -1,47 +1,30 @@
 import java.util.Scanner;
 
-public class Main {
+public class SubnetCaculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        SubnetCaculator calculator = new SubnetCaculator();
 
-        System.out.println("Wähle die IP-Version:");
-        System.out.println("1: IPv4");
-        System.out.println("2: IPv6");
-
-        int auswahl = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (auswahl) {
-            case 1:
-                ipv4Berechnung(scanner);
-                break;
-            case 2:
-                ipv6Berechnung(scanner);
-                break;
-            default:
-                System.out.println("Ungültige Auswahl.");
-        }
+        UserInterface interface = new UserInterface(scanner, calculator);
+        interface.startProgram;
     }
+}       
+
+       
+
+        
 
 
 
 
     private static void ipv4Berechnung(Scanner scanner) {
-        System.out.println("Gebe deine Ausgangs-IPv4-Adresse an:");
-        String ipAdresse = scanner.nextLine();
-
-        System.out.println("Gebe deine Subnetzmaske /x an:");
-        double präfixSubnetzmaske = scanner.nextDouble();
-        scanner.nextLine();
+        
 
         if (präfixSubnetzmaske < 0 || präfixSubnetzmaske > 32) {
             System.out.println("Fehler: Ungültige Subnetzmaske. Bitte gib einen Wert zwischen 0 und 32 ein.");
             return;
         }
 
-        System.out.println("Gebe das gewünschte Subnetting an:");
-        double subnettingWert = scanner.nextDouble();
-        scanner.nextLine();
 
         double präfixMitSubnettingWert = präfixSubnetzmaske + subnettingWert;
 
@@ -98,37 +81,5 @@ public class Main {
         }
     }
 
-    private static void ipv6Berechnung(Scanner scanner) {
-        System.out.println("Gebe deine Ausgangs-IPv6-Adresse ein");
-        String ipv6Adresse = scanner.nextLine();
-
-        System.out.println("Gebe das Präfix an.");
-        int praefix = scanner.nextInt();
-        scanner.nextLine();
-
-        if (praefix < 0 || praefix > 128) {
-            System.out.println("Ungültiges Präfix.");
-            return;
-        }
-
-        System.out.println("Gebe das gewünschte Subnetting an.");
-        int subnetting = scanner.nextInt();
-        scanner.nextLine();
-
-        int neuesPraefix = praefix + subnetting;
-        if (neuesPraefix > 128) {
-            System.out.println("Die resultierende Präfixlänge überschreitet 128.");
-            return;
-        }
-
-
-
-        String[] blocks = ipv6Adresse.split(":");
-        int subnets = (int) Math.pow(2, subnetting);
-
-        //Welcher Block
-        int blockIndex = neuesPraefix / 16;
-
-
-    }
+    
 }
