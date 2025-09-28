@@ -38,12 +38,12 @@ public class TerminalUI {
                     cart.print();
                     break;
                 case "total":
-                    System.out.println("Total: " + cart.price());
+                    System.out.println("Total: " + cart.getPrice());
                     break;
                 case "checkout":
                     System.out.println("your shoppingcart contents:");
                     cart.print();
-                    System.out.println("total: " + cart.price());
+                    System.out.println("total: " + cart.getPrice());
                     running = false;
                     break;
                 case "stock":
@@ -71,13 +71,13 @@ public class TerminalUI {
     }
 
     private void listProducts() {
-        for (String product : warehouse.products()) {
-            System.out.println(product + " (price: " + warehouse.price(product) + ", stock: " + warehouse.stock(product) + ")");
+        for (String product : warehouse.getProducts()) {
+            System.out.println(product + " (price: " + warehouse.getPrice(product) + ", stock: " + warehouse.getStock(product) + ")");
         }
     }
 
     private void addToCart(ShoppingCart cart, String product) {
-        int unitPrice = warehouse.price(product);
+        int unitPrice = warehouse.getPrice(product);
         if (unitPrice == -99) {
             System.out.println("No such product: " + product);
             return;

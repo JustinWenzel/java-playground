@@ -16,11 +16,12 @@ public class Warehouse {
         this.stocks.put(product, stock);
     }
 
-    public int price(String product) {
+    // accessors following Java naming conventions
+    public int getPrice(String product) {
         return this.prices.getOrDefault(product, -99);
     }
 
-    public int stock(String product) {
+    public int getStock(String product) {
         return this.stocks.getOrDefault(product, 0);
     }
 
@@ -33,7 +34,7 @@ public class Warehouse {
         return false;
     }
 
-    public Set<String> products() {
+    public Set<String> getProducts() {
         return this.prices.keySet();
     }
 }

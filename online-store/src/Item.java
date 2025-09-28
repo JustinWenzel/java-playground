@@ -9,8 +9,30 @@ public class Item {
         this.unitPrice = unitPrice;
     }
 
-    public int price() {
+    // total price for this item (unitPrice * qty)
+    public int getPrice() {
         return this.unitPrice * this.qty;
+    }
+
+    // standard getters / setters
+    public String getProduct() {
+        return this.product;
+    }
+
+    public int getQty() {
+        return this.qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public int getUnitPrice() {
+        return this.unitPrice;
+    }
+
+    public void setUnitPrice(int unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public void increaseQuantity() {

@@ -16,10 +16,11 @@ public class ShoppingCart {
         }
     }
 
-    public int price() {
+    // total price for cart
+    public int getPrice() {
         int total = 0;
         for (Item item : this.items.values()) {
-            total += item.price();
+            total += item.getPrice();
         }
         return total;
     }

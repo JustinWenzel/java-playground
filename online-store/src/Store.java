@@ -13,8 +13,8 @@ public class Store {
         ShoppingCart cart = new ShoppingCart();
         System.out.println("Welcome to the store " + customer);
         System.out.println("our selection:");
-        for (String product : this.warehouse.products()) {
-            System.out.println(product);
+        for (String product : this.warehouse.getProducts()) {
+            System.out.println(product + " (price: " + this.warehouse.getPrice(product) + ")");
         }
         while (true) {
             System.out.print("What to put in the cart (press enter to go to the register): ");
@@ -22,13 +22,13 @@ public class Store {
             if (product.isEmpty()) {
                 break;
             }
-            if (this.warehouse.stock(product) > 0) {
+            if (this.warehouse.getStock(product) > 0) {
                 this.warehouse.take(product);
-                cart.add(product, this.warehouse.price(product));
+                cart.add(product, this.warehouse.getPrice(product));
             }
         }
         System.out.println("your shoppingcart contents:");
         cart.print();
-        System.out.println("total: " + cart.price());
+        System.out.println("total: " + cart.getPrice());
     }
 }

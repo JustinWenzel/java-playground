@@ -1,0 +1,10 @@
+class ElectricCar extends Car implements Electric {
+    ElectricCar(String brand, double pricePerDay, int seats) {
+        super(brand, pricePerDay, seats);
+    }
+
+    @Override
+    public void chargeBattery() {
+        System.out.println(getBrand() + " is charging...");
+    }
+}
