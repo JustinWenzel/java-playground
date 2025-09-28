@@ -1,3 +1,8 @@
-# Subnet Calculator
+## Projects for practice
+Small Java projects for learning and experimentation.
 
-A simple Java application that calculates the network address from a given IPv4 address and subnet mask.
+This repository contains compact, focused exercises and tools to practice Java concepts.
+
+- [subnet-calculator] – Simple subnet calculator to transfer networking knowledge into Java
+- [online-store] – Simple simulation of an online store to learn more about Maps
+
